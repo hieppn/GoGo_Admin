@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV94lDvga3FIjsmkVYya1cvQEBFdiy05YXzQ&usqp=CAU"); */
+  /* background-image: url('/public/Image/login.png'); */
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: initial;
+
+  background-color: #ededed;
+}
+.to {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: minmax(100px, auto);
+}
+
+.form {
+  border-top: 5px solid #2dbdf7;
+  grid-column: 6/9;
+  grid-row: 3;
+  height: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 0px 14px 0px grey;
+  background-color: white;
+  padding: 30px;
+  margin: 10px;
+}
+h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-left: -126px;
+  display: block;
+  font-weight: lighter;
+}
+.form input {
+  border: 1px solid rgb(134, 130, 130);
+  margin: 15px;
+  width: 250px;
+  height: 35px;
+  outline: none;
+  text-indent: 10px;
+  font-size: 15px;
+}
+.form label {
+  font-size: 12px;
+}
+input[type="text"] {
+  padding: 5px;
+  width: 70%;
+}
+
+button#submit {
+  font-size: 20px;
+  outline: none;
+  height: 45px;
+  width: 250px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: bolder;
+  background: linear-gradient(to right, #fc00ff, #00dbde);
+  margin: 15px 0;
+}
+button#submit:hover {
+  background: linear-gradient(to right, #fc466b, #3f5efb);
+}
+
+.lbPhone {
+  margin-left: -172px;
+  margin-top: 35px;
+}
+.lbPass {
+  margin-left: -150px;
+  margin-top: 30px;
+}
+
+.ipPass {
+  padding: 5px;
+  width: 70%;
+}
+.custom-control {
+  display: flex;
+  align-items: center;
+  margin-left: -135px;
+  /* padding: 0; */
+ 
+}
+.custom-control input{
+  height: 15px;
+  width: 15px;
+}
+
+.pass-label {
+  margin: 10px 0;
+}
+/* .img {
+  margin: -60px;
+  width: 120px;
+  height: 120px;
+} */
+.titleLogin {
+  margin-top: 0 25px;
+  /* font-family: Cursive; */
+  font-size: xx-large;
+}
+
+@media screen and (max-width:450px) {
+  .to{
+    padding: 30px;
+    display: block;
+    border-radius: 20px;
+  }
+  .form{
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+    border-radius: 15px;
+  }
+  .titleLogin{
+    font-size: 30px;
+  }
+  
+}
