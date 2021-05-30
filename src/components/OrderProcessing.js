@@ -15,16 +15,19 @@ class OrderProcessing extends Component{
         this.state={
             orders:[],
             keyword:"",
+            loading: false
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/order/list",
             data:null
         }).then (res=>{
             this.setState({
-                orders:res.data
+                orders:res.data,
+                loading:false
             });
         }).catch(err=>{
             console.log(err);
@@ -68,7 +71,7 @@ class OrderProcessing extends Component{
                        
                     </div>  
                  </div>
-                
+                {this.state.loading? <Loading type="bubbles" color="#ff8000" width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -95,11 +98,11 @@ class OrderProcessing extends Component{
                                     });
                                   } else {
                                     return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have processing order </p>
-                                    <Loading type="bubbles" color="#ff8000"/>
                                     </div>;
                                   }
                     })()}       
                 </table>
+    }
             </div>
             </div>
         );

@@ -5,10 +5,10 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
 class Menu extends Component {
-  Logout = () => {
+  Logout = async() => {
     localStorage.clear();
-    toast.success("Signed out!", {});
-    this.props.history.push("/");
+     await this.props.history.push("/");
+   await toast.success("Signed out!", {});
   };
   myFunction() {
     var x = document.getElementById("sidebar");

@@ -16,16 +16,19 @@ class OrderNew extends Component{
         this.state={
             orderNew:[],
             keyword:"",
+            loading: false,
         }
     }
     componentDidMount (){
+        this.setState({loading:true})
           Axios({
             methos:'GET',
             url:'https://api-gogo.herokuapp.com/api/order/list',
             data:null
         }).then (res=>{
             this.setState({
-                orderNew:res.data
+                orderNew:res.data,
+                loading:false,
             });
         }).catch(err=>{
             console.log(err);
@@ -64,7 +67,7 @@ class OrderNew extends Component{
                             </div>
                             </div>  
                 </div>
-                
+                {this.state.loading===true?<Loading type="bubbles" color="#ff8000" width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                     <tr>
@@ -91,12 +94,11 @@ class OrderNew extends Component{
                                     });
                                   } else {
                                     return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have new order </p>
-                                    <Loading type="bubbles" color="#ff8000"/>
                                     </div>;
                                   }
                     })()}
                 </table>
-
+    }
             </div>
             </div>
         );

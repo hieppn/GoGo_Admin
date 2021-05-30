@@ -27,10 +27,10 @@ class Login extends Component {
         });
     }
      onSave = async (e) => {
-        this.state.loading = true;
         e.preventDefault();
         var { phone, password } = this.state;
         var { history } = this.props;
+        this.setState({loading: true})
         await axios({
             method: 'POST',
             url: 'https://api-gogo.herokuapp.com/api/login',
@@ -41,7 +41,7 @@ class Login extends Component {
             }
         }).then((response) => {
             if(response.data.role==3){
-                this.state.loading = false;
+                this.setState({loading: false});
                 this.setState({loggedIn : true})
                 localStorage.setItem('phone', phone);
                 toast.success("Login successfully",{})
@@ -80,7 +80,7 @@ class Login extends Component {
                         <label class="pass-label" htmlFor="customCheck">Remember me</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
-                    {this.state.loading===true&&<Loading type="bubbles" color="red"/>}
+                    {this.state.loading===true&&<Loading type="bubbles" color="#ff8000" width="100px" height="100px"/>}
                 </form>
             </div>
         )

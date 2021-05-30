@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
  
-const Loading = ({ type, color }) => (
-    <ReactLoading type={type} color={color} height={30} width={30} />
+const Loading = ({ type, color,width,height }) => (
+    <ReactLoading type={type} color={color} height={height} width={width} />
 );
  
 export default Loading;

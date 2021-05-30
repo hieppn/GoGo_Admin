@@ -7,6 +7,8 @@ import Header from './Header';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {Redirect} from 'react-router-dom';
+import Loading from './Loading';
+
 class Sender extends Component{
     constructor(props){
         super(props)
@@ -14,16 +16,19 @@ class Sender extends Component{
             senders:[],
             roles:[],
             keyword:"",
+            loading: false
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/sender/list",
             data:null
         }).then (res=>{
             this.setState({
-                senders:res.data
+                senders:res.data,
+                loading: false
             });
         }).catch(err=>{
             console.log(err);
@@ -100,6 +105,7 @@ class Sender extends Component{
                     <input class="search" name="keyword" value={keyword} onChange ={ this.onChange} type="search" placeholder="Search" aria-label="Search" />
                 </div>  
                 <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"center"}}>List of senders</p> </div>
+                {this.state.loading===true?<Loading type="bubbles" color="#ff8000"width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -125,7 +131,7 @@ class Sender extends Component{
                         // <p> {product.price}</p>  
                         )}
                 </table>
-
+    }
             </div>
             </div>
           

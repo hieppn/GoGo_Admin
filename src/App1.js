@@ -41,8 +41,8 @@ export default class App1 extends Component {
                 <Route exact path='/truckerTempt' component={ TruckerTempt } />
                 <Route exact path='/truck' component={ Vehicle } />
                 <Route exact path='/' component={ !localStorage.phone||localStorage.phone!="0981536770"? Login:Dashboard } />
-                <Route path="" component={NotFound} /> // empty ""
-                <Route path="*" component={NotFound} /> // star *
+                {/* <Route path="" component={NotFound} /> // empty ""
+                <Route path="*" component={NotFound} /> // star * */}
                 <Route component={NotFound} /> // without path
                 </Switch>
             </BrowserRouter>

@@ -8,22 +8,26 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import Loading from './Loading';
 class Promotion extends Component{
     constructor(props){
         super(props)
         this.state={
             promotions:[],
             keyword:"",
+            loading: false
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/promotion/list",
             data:null
         }).then (res=>{
             this.setState({
-                promotions:res.data
+                promotions:res.data,
+                loading: false
             });
         }).catch(err=>{
             console.log(err);
@@ -109,6 +113,7 @@ class Promotion extends Component{
                             </div> 
                         </div>  
                     </div>
+                    {this.state.loading===true?<Loading type="bubbles" color="#ff8000"width="100px" height="100px"/>:
                     <table class="styled-table">
                         <thead>
                             <tr>
@@ -135,7 +140,7 @@ class Promotion extends Component{
 
                                 
                     </table>
-                
+    }
                 </div>
                 </div>
         );

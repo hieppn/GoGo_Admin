@@ -15,16 +15,19 @@ class OrderCompleted extends Component{
         this.state={
             orderCompleted:[],
             keyword:"",
+            loading: false,
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:'https://api-gogo.herokuapp.com/api/order/list',
             data:null
         }).then (res=>{
             this.setState({
-                orderCompleted:res.data
+                orderCompleted:res.data,
+                loading:false
             });
         }).catch(err=>{
             console.log(err);
@@ -64,6 +67,7 @@ class OrderCompleted extends Component{
                             </div>  
                     
                 </div>
+                {this.state.loading?<Loading type="bubbles" color="#ff8000"width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                     <tr>
@@ -90,12 +94,11 @@ class OrderCompleted extends Component{
                                     });
                                   } else {
                                     return <div style={{display:"flex",justifyContent:"center"}}><p>Don't have completed order </p>
-                                    <Loading type="bubbles" color="#ff8000"/>
                                     </div>;
                                   }
                     })()}
                 </table>
-
+    }
             </div>
             </div>
         );

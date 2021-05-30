@@ -862,7 +862,7 @@ h3 {
 }
 .right__side {
   /* float: right; */
-  margin-left: 85%
+  margin-left: 50%
 }
 
 .notifi {
@@ -892,6 +892,7 @@ h3 {
   margin: 0px 30px;
   position: relative;
   display: inline-block;
+  border-radius: 15%;
 }
 
 .dropdown {
@@ -918,6 +919,7 @@ h3 {
 .border {
   height: fit-content;
   margin-bottom: 70px;
+  border-radius: 15%;
 }
 .infor {
   margin: -25px 10%;

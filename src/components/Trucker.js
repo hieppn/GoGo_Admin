@@ -8,6 +8,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import Header from './Header';
 import {Redirect,Link,withRouter} from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
+import Loading from './Loading';
 class Trucker extends Component{
     constructor(props){
         super(props)
@@ -15,18 +16,22 @@ class Trucker extends Component{
             truckers:[],
             roles:[],
             keyword:"",
+            loading: false,
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/trucker/list",
             data:null
         }).then (res=>{
             this.setState({
-                truckers:res.data
+                truckers:res.data,
+                loading: false
             });
         }).catch(err=>{
+            this.setState({loading:false})
             console.log(err);
         });
         }
@@ -111,6 +116,7 @@ class Trucker extends Component{
                             </div>                      
                     </div>
                 </div>
+                {this.state.loading===true?<Loading type="bubbles" color="#ff8000"width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -137,7 +143,7 @@ class Trucker extends Component{
                         // <p> {product.price}</p>  
                         )}
                 </table>
-
+    }
             </div>
             </div>
           

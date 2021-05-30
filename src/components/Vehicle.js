@@ -7,24 +7,29 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import Menu from './Menu';
 import {Redirect} from 'react-router-dom';
 import Header from './Header';
+import Loading from './Loading';
   class Vehicle extends Component{
     constructor(props){
         super(props)
         this.state={
             trucks:[],
             keyword:"",
+            loading: false
         }
     }
     componentDidMount(){
+        this.setState({loading:true})
         Axios({
             methos:'GET',
             url:"https://api-gogo.herokuapp.com/api/truck/list",
             data:null
         }).then (res=>{
             this.setState({
-                trucks:res.data
+                trucks:res.data,
+                loading: false
             });
         }).catch(err=>{
+            this.setState({loading:false});
             console.log(err);
         });
         }
@@ -99,6 +104,7 @@ import Header from './Header';
                     </div>
                 </div>
                 <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"center"}}>List of vehicles</p> </div>
+                {this.state.loading===true ?<Loading type="bubbles" color="#ff8000"width="100px" height="100px"/>:
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -124,7 +130,7 @@ import Header from './Header';
                   
                  
                 </table>
-
+    }
             </div>
             </div>
         );
