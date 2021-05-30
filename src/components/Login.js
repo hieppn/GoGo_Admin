@@ -76,8 +76,8 @@ class Login extends Component {
                     {/* <label for="pwd" class="lbPass" >Password</label> */}
                     <input type="password" value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} placeholder="Password"/>
                     <div class="custom-control">
-                        <input type="checkbox" class="checkbox" id="customCheck1" />
-                        <label class="pass-label" htmlFor="customCheck1">Remember me</label>
+                        <input type="checkbox" class="checkbox" id="customCheck" />
+                        <label class="pass-label" htmlFor="customCheck">Remember me</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
                     {this.state.loading===true&&<Loading type="bubbles" color="red"/>}
