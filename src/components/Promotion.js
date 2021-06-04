@@ -108,7 +108,7 @@ class Promotion extends Component{
                                 <input type="text" className="search" name="keyword"  value={keyword} onChange ={ this.onChange} type="search" placeholder='Search' aria-label="Search" />
                                 <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of promotions</p> </div>
                             </div>
-                            <div class="right__side">
+                            <div class="right__side" style={{marginLeft:"83%"}}>
                                 <Link to={'/Add'} class="link"><button className="button2 buttonAddPro"title="Add new promotion" ><i class="fa fa-plus-circle" title="Add new promotion"></i></button> </Link>
                             </div> 
                         </div>  
