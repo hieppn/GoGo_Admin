@@ -57,7 +57,7 @@ class OrderProcessing extends Component{
                     <div class="left__side">
                             <div><p style={{color:"black", fontWeight:"bold",fontSize:"20px",float:"left"}}>List of processing orders</p></div>
                         </div>
-                            <div class="right__side">
+                            <div class="right__side" style={{marginLeft:"83%"}}>
                             <div class="dropdown1">
                         
                                 <button onClick ={ () =>this.myFunction()} class="dropbtn ">Filter by <i class="fa fa-caret-down"></i></button>
