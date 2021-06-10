@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Redirect, withRouter} from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import Loading from './Loading';
 import axios from 'axios';
 class Login extends Component {
@@ -12,7 +12,7 @@ class Login extends Component {
             phone: '',
             password: '',
             loggedIn: false,
-            loading:false,
+            loading: false,
         }
     }
     onChange = (event) => {
@@ -26,11 +26,11 @@ class Login extends Component {
             [name]: value,
         });
     }
-     onSave = async (e) => {
+    onSave = async (e) => {
         e.preventDefault();
         var { phone, password } = this.state;
         var { history } = this.props;
-        this.setState({loading: true})
+        this.setState({ loading: true })
         await axios({
             method: 'POST',
             url: 'https://api-gogo.herokuapp.com/api/login',
@@ -40,47 +40,48 @@ class Login extends Component {
                 token: "123456"
             }
         }).then((response) => {
-            if(response.data.role==3){
-                this.setState({loading: false});
-                this.setState({loggedIn : true})
+            if (response.data.role == 3) {
+                this.setState({ loading: false });
+                this.setState({ loggedIn: true })
                 localStorage.setItem('phone', phone);
-                toast.success("Login successfully",{})
+                toast.success("Login successfully", {})
                 history.push('/dashboard');
             }
-            else{
+            else {
                 this.state.loading = false;
                 toast.error("Login failed!", {
                 })
             }
-          
-          }
-          )
-          .catch((response) => {
-            this.state.loading = false;
-            if (response.status == undefined) {
-                toast.error("Login failed!", {
-                })
-            }});
+
+        }
+        )
+            .catch((response) => {
+                this.state.loading = false;
+                if (response.status == undefined) {
+                    toast.error("Login failed!", {
+                    })
+                }
+            });
 
 
     }
 
-    render() {    
+    render() {
         return (
             <div className="to">
-                <form class="form" style={{borderRadius: "15px"}} onSubmit={this.onSave}>
+                <form class="form" style={{ borderRadius: "15px" }} onSubmit={this.onSave}>
                     {/* <img  class="img" src="https://static.thenounproject.com/png/99475-200.png"></img> */}
                     <h2 class="titleLogin">Login to dashboard</h2>
                     {/* <label for="username" class="lbPhone" >Phone</label> */}
-                    <input value={this.state.username} onChange={this.onChange} required autofocus  name="phone"  placeholder="Phone number"/>
+                    <input value={this.state.username} onChange={this.onChange} required autofocus name="phone" placeholder="Phone number" />
                     {/* <label for="pwd" class="lbPass" >Password</label> */}
-                    <input type="password" value={this.state.username} onChange={this.onChange}  required name="password" maxLength={50} placeholder="Password"/>
+                    <input type="password" value={this.state.username} onChange={this.onChange} required name="password" maxLength={50} placeholder="Password" />
                     <div class="custom-control">
                         <input type="checkbox" class="checkbox" id="customCheck" />
                         <label class="pass-label" htmlFor="customCheck">Remember me</label>
                     </div>
                     <button id="submit" type="submit" name="submit" value="Login">Login</button>
-                    {this.state.loading===true&&<Loading type="bubbles" color="#ff8000" width="100px" height="100px"/>}
+                    {this.state.loading === true && <Loading type="bubbles" color="#ff8000" width="100px" height="100px" />}
                 </form>
             </div>
         )

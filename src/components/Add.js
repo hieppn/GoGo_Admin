@@ -44,7 +44,7 @@ export default class Add extends Component {
             value: data.value,
           });
         })
-        .catch((err) => {});
+        .catch((err) => { });
     }
   }
   onChange = (event) => {
@@ -130,7 +130,7 @@ export default class Add extends Component {
       <div class="container">
         <Menu />
         <div class="orderTable">
-          <Header/>
+          <Header />
           <NavLink
             to="/promotion"
             class="link-nav"
@@ -143,9 +143,9 @@ export default class Add extends Component {
             <h3>ADD Promotion</h3>
             <form onSubmit={this.onSave}>
               <div class="flex-box">
-                <label for="name">Title: <span style={{color:"red"}}> *</span></label>
+                <label for="name">Title: <span style={{ color: "red" }}> *</span></label>
                 <input
-                required
+                  required
                   type="text"
                   name="name"
                   class="form-input"
@@ -154,11 +154,11 @@ export default class Add extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="code">Code:  <span style={{color:"red"}}> *</span> </label>
+                <label for="code">Code:  <span style={{ color: "red" }}> *</span> </label>
                 <input
-                required
-                minlength="3" 
-                maxlength="15"
+                  required
+                  minlength="3"
+                  maxlength="15"
                   type="text"
                   name="code"
                   class="form-input"
@@ -168,9 +168,9 @@ export default class Add extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="start_time">Start Time: <span style={{color:"red"}}> *</span></label>
+                <label for="start_time">Start Time: <span style={{ color: "red" }}> *</span></label>
                 <input required
-               min="2021-05-17T00:00" 
+                  min="2021-05-17T00:00"
                   type="datetime-local"
                   name="start_time"
                   class="form-input"
@@ -180,11 +180,11 @@ export default class Add extends Component {
               </div>
 
               <div class="flex-box">
-                <label for="end_time">End Time: <span style={{color:"red"}}> *</span></label>
+                <label for="end_time">End Time: <span style={{ color: "red" }}> *</span></label>
                 <input
-                required
-                min="2021-05-17T00:00" 
-                type="datetime-local"
+                  required
+                  min="2021-05-17T00:00"
+                  type="datetime-local"
                   name="end_time"
                   class="form-input"
                   value={this.state.end_time}
@@ -192,13 +192,13 @@ export default class Add extends Component {
                 />
               </div>
               <div class="flex-box">
-                <label for="min_value">Apply for (VNĐ) <span style={{color:"red"}}>*</span>:</label>
+                <label for="min_value">Apply for (VNĐ) <span style={{ color: "red" }}>*</span>:</label>
                 <div class="small-flex-box">
                   <input
-                  // step="0.01" 
-                  required
-                  min="100000"
-                  max="100000000"
+                    // step="0.01" 
+                    required
+                    min="100000"
+                    max="100000000"
                     type="number"
                     name="min_value"
                     class="small-input"
@@ -207,9 +207,9 @@ export default class Add extends Component {
                     onChange={this.onChange}
                   />
                   <input
-                  required
-                  min="100000"
-                  max="100000000"
+                    required
+                    min="100000"
+                    max="100000000"
                     type="number"
                     name="max_value"
                     class="small-input"
@@ -220,11 +220,11 @@ export default class Add extends Component {
                 </div>
               </div>
               <div class="flex-box">
-                <label for="value">Value (%):<span style={{color:"red"}}> *</span> </label>
+                <label for="value">Value (%):<span style={{ color: "red" }}> *</span> </label>
                 <input
-                required
-                min="5"
-                max="100"
+                  required
+                  min="5"
+                  max="100"
                   type="number"
                   name="value"
                   class="number-input"
@@ -234,7 +234,7 @@ export default class Add extends Component {
               </div>
 
               <br />
-              <div style={{margin: "0 34%", display: "flex"}}>
+              <div style={{ margin: "0 34%", display: "flex" }}>
                 <button class="styled-button" type="submit">
                   SAVE
                 </button>

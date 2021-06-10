@@ -5,10 +5,10 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
 class Menu extends Component {
-  Logout = async() => {
+  Logout = async () => {
     localStorage.clear();
-     await this.props.history.push("/");
-   await toast.success("Signed out!", {});
+    await this.props.history.push("/");
+    await toast.success("Signed out!", {});
   };
   myFunction() {
     var x = document.getElementById("sidebar");
@@ -21,16 +21,16 @@ class Menu extends Component {
   render() {
     return (
       <div id="sidebar" className="s-layout">
-      {/* Sidebar */}
-      
-      <div className="s-layout__sidebar">
-        <div class="sidebar__title">
+        {/* Sidebar */}
+
+        <div className="s-layout__sidebar">
+          <div class="sidebar__title">
             <div class="sidebar__img">
               <h2
                 style={{
                   color: "#001747",
                   // fontFamily: "Copperplate Gothic Light",
-                  fontSize:'24px'
+                  fontSize: '24px'
                 }}
               >
                 GOGO Dashboard
@@ -42,112 +42,112 @@ class Menu extends Component {
               id="sidebarIcon"
               aria-hidden="true"
             ></i>
-         </div>
-        <a className="s-sidebar__trigger" href="#0">
-          <i className="fa fa-bars" />
-        </a>
-        <nav className="s-sidebar__nav">
-          <ul>
-            <li>
+          </div>
+          <a className="s-sidebar__trigger" href="#0">
+            <i className="fa fa-bars" />
+          </a>
+          <nav className="s-sidebar__nav">
+            <ul>
+              <li>
                 <NavLink
-                exact
-                to={"/dashboard"}
-                className="nav-link"
-                activeClassName="nav-active"
-            >
-                <div class="sidebar__link">
-                  <i class="fa fa-home"></i>
+                  exact
+                  to={"/dashboard"}
+                  className="nav-link"
+                  activeClassName="nav-active"
+                >
+                  <div class="sidebar__link">
+                    <i class="fa fa-home"></i>
                   Dashboard
               </div>
-              </NavLink>
-            </li>
-            <li>
-            <NavLink
-            exact
-            to={"/truck"}
-            className="nav-link"
-            style={{ fontFamily: "Raleway" }}
-            activeClassName="nav-active"
-          >
-             <div class="sidebar__link">
-             <i class="fas fa-truck-moving"></i>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  exact
+                  to={"/truck"}
+                  className="nav-link"
+                  style={{ fontFamily: "Raleway" }}
+                  activeClassName="nav-active"
+                >
+                  <div class="sidebar__link">
+                    <i class="fas fa-truck-moving"></i>
                Vehicle
              </div>
-           </NavLink>
-            </li>
-            <li>
+                </NavLink>
+              </li>
+              <li>
                 <NavLink
-                exact
-                to={"/orderNew"}
-                className="nav-link"
-                activeClassName="nav-active"
-              >
-                <div class="sidebar__link">
-                  <i class="fa fa-list"></i>
+                  exact
+                  to={"/orderNew"}
+                  className="nav-link"
+                  activeClassName="nav-active"
+                >
+                  <div class="sidebar__link">
+                    <i class="fa fa-list"></i>
                   Order
                 </div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-               exact
-               to={"/promotion"}
-               className="nav-link"
-               activeClassName="nav-active" >
-               <div class="sidebar__link">
-                <i class="fa fa-money"></i>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  exact
+                  to={"/promotion"}
+                  className="nav-link"
+                  activeClassName="nav-active" >
+                  <div class="sidebar__link">
+                    <i class="fa fa-money"></i>
                  Promotion
                </div>
-              </NavLink>
-            </li>
-            <li>
-              <h2>User</h2>
-               <NavLink
-                 exact
-                 to={"/trucker"}
-                 className="nav-link"
-                 activeClassName="nav-active">
-                 <div class="sidebar__link">
-                   <i class="fa fa-users"></i>
+                </NavLink>
+              </li>
+              <li>
+                <h2>User</h2>
+                <NavLink
+                  exact
+                  to={"/trucker"}
+                  className="nav-link"
+                  activeClassName="nav-active">
+                  <div class="sidebar__link">
+                    <i class="fa fa-users"></i>
                    Trucker
                    {/* <a href="#">Trucker Management</a> */}
-                 </div>
-               </NavLink>
-            </li>
-            <li>
+                  </div>
+                </NavLink>
+              </li>
+              <li>
                 <NavLink exact to={"/sender"}
-                 className="nav-link"
-                 activeClassName="nav-active" >
-                 <div class="sidebar__link">
-                   <i class="fa fa-user"></i>
+                  className="nav-link"
+                  activeClassName="nav-active" >
+                  <div class="sidebar__link">
+                    <i class="fa fa-user"></i>
                    Sender
                    {/* <a href="#">Sender Management</a> */}
-                 </div>
-               </NavLink>
+                  </div>
+                </NavLink>
 
-            </li>
-            <li>
-            <Link onClick={this.Logout} to={"/"} className="nav-link">
-                   <div class="sidebar__logout">
-                     <a>
-                       <i class="fa fa-power-off"></i> SIGN OUT
+              </li>
+              <li>
+                <Link onClick={this.Logout} to={"/"} className="nav-link">
+                  <div class="sidebar__logout">
+                    <a>
+                      <i class="fa fa-power-off"></i> SIGN OUT
                      </a>
-                   </div>
-        </Link>
-            </li>
-          </ul>
-          
-        </nav>
-        
+                  </div>
+                </Link>
+              </li>
+            </ul>
+
+          </nav>
+
+        </div>
       </div>
-    </div>
-      
+
     );
-    
+
   }
-  
+
 }
 
 
 
-export default withRouter(Menu) ;
+export default withRouter(Menu);
